@@ -9,9 +9,6 @@ var TestKitties = artifacts.require("TestKitties");
 contract('TestKitties', function(accounts) {
     let contract;
 
-    const NAME = "TestKitty";
-    const SYMBOL = "TK";
-
     const account0 = accounts[0];
     const account1 = accounts[1];
     const account2 = accounts[2];
@@ -21,12 +18,13 @@ contract('TestKitties', function(accounts) {
     const token2 = 2;
 
     before(async() => {
-        contract = await TestKitties.new(NAME, SYMBOL);
+        contract = await TestKitties.new();
+        console.log('=============== ', contract)
     });
 
     it('Deploy', async () => {
-        expect(await contract.symbol()).to.equal(SYMBOL);
-        expect(await contract.name()).to.equal(NAME);
+        expect(await contract.symbol()).to.equal("TK");
+        expect(await contract.name()).to.equal("TestKitties");
     });
 
     it('Mint', async () => {
