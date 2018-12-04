@@ -39,3 +39,6 @@ brew install solidity
 ```bash
 solc --optimize --combined-json abi,bin "zeppelin-solidity=$PWD/node_modules/zeppelin-solidity" contracts/TestKitties.sol -o build --overwrite
 ```
+
+### Deployed on Rinkeby
+Use address `0xBDCE69f2559B97C75f648C8423Bcc8f67D377f1F` and [ABI](TestKitties.abi)
