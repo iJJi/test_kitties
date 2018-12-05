@@ -10,7 +10,7 @@ contract TestKitties is ERC721Token, Ownable {
     constructor () public ERC721Token(NAME, SYMBOL) {
     }
 
-    function mint(address _to, uint256 _tokenId) public payable onlyOwner {
+    function mint(address _to, uint256 _tokenId) public payable {
         super._mint(_to, _tokenId);
     }
 }
