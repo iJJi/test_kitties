@@ -19,7 +19,6 @@ contract('TestKitties', function(accounts) {
 
     before(async() => {
         contract = await TestKitties.new();
-        console.log('=============== ', contract)
     });
 
     it('Deploy', async () => {
@@ -28,8 +27,6 @@ contract('TestKitties', function(accounts) {
     });
 
     it('Mint', async () => {
-        let initialSupply = Number(await contract.totalSupply());
-
         expect(await contract.exists(9999)).to.be.false; // Dummy tokenId
 
         await contract.mint(account1, token1, {from: account0});
@@ -39,8 +36,6 @@ contract('TestKitties', function(accounts) {
         await contract.mint(account2, token2, {from: account0});
         expect(await contract.exists(token2)).to.be.true;
         expect(await contract.ownerOf(token2)).to.equal(account2);
-
-        expect(Number(await contract.totalSupply()) - initialSupply).to.equal(2);
     });
 
     it('Safe Transfers', async () => {

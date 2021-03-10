@@ -10,7 +10,7 @@ Based on
 
 To use
 - Install [Ganache](http://truffleframework.com/ganache/)
-- Install latest [node (10.13.x LTS)](https://nodejs.org/en/)
+- Install latest [node (v14.15.5 LTS)](https://nodejs.org/en/)
 - Install Truffle
 ```
 npm install -g truffle
@@ -20,7 +20,7 @@ npm install -g truffle
 cd test_kitties
 npm install
 ```
-- Run tests
+- Run tests (note: version of solc used is defined in `truffle.js`)
 ```
 truffle test
 ```
@@ -37,7 +37,7 @@ brew install solidity
 ```
 - Generate API and ABI
 ```bash
-solc --optimize --abi --bin "zeppelin-solidity=$PWD/node_modules/zeppelin-solidity" contracts/TestKitties.sol -o build --overwrite
+solc --optimize --abi --bin "@openzeppelin=$PWD/node_modules/@openzeppelin" contracts/TestKitties.sol -o build --overwrite
 ```
 
 ### Deployed on Rinkeby

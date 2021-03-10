@@ -8,18 +8,18 @@
   },
   "scripts": {
     "test": "truffle test",
-    "console": "truffle console"
+    "build": "solc --optimize --abi --bin \"@openzeppelin=$PWD/node_modules/@openzeppelin\" contracts/TestKitties.sol -o build --overwrite"
   },
   "author": "Eng-Shien Wu (engshien.wu@ijji.com)",
   "license": "ISC",
   "dependencies": {
-    "zeppelin-solidity": "^1.12.0"
+    "@openzeppelin/contracts": "OpenZeppelin/openzeppelin-contracts"
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
-    "chai": "^4.2.0",
+    "chai": "^4.3.3",
     "chai-as-promised": "^7.1.1"
   }
 }

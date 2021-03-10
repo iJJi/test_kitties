@@ -29,4 +29,10 @@ module.exports = {
             network_id: '*', // Match any network id
         }
     },
+    // See https://www.trufflesuite.com/docs/truffle/reference/configuration#compiler-configuration
+    compilers: {
+        solc: {
+            version: "^0.8.2",    // Fetch exact version from solc-bin (default: truffle's version)
+        }
+    }
 };

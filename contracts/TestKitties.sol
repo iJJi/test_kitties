@@ -1,16 +1,23 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.8.0;
 
-import 'zeppelin-solidity/contracts/token/ERC721/ERC721Token.sol';
-import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
+// SPDX-License-Identifier: MIT
 
-contract TestKitties is ERC721Token, Ownable {
+// See https://docs.openzeppelin.com/contracts/4.x/api/token/erc721
+
+import '@openzeppelin/contracts/contracts/token/ERC721/ERC721.sol';
+
+contract TestKitties is ERC721 {
     string public constant NAME = "TestKitties";
     string public constant SYMBOL = "TK";
 
-    constructor () public ERC721Token(NAME, SYMBOL) {
+    constructor () ERC721(NAME, SYMBOL) {
     }
 
     function mint(address _to, uint256 _tokenId) public payable {
         super._mint(_to, _tokenId);
+    }
+
+    function exists(uint256 tokenId) public view virtual returns (bool) {
+        return super._exists(tokenId);
     }
 }
